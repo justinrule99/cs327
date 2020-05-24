@@ -1,0 +1,24 @@
+#
+# It is possible to reach the winning condition
+#   (no covered cards, at most 1 waste card, no stock cards)
+# for this game in 5 moves: . w->3 . . w->3
+#
+RULES:
+  turn 1
+  unlimited
+FOUNDATIONS:
+  2c
+  4d
+  3h
+  3s
+TABLEAU:
+  | 4c
+  |
+  | Kc Qd Js Td 9s 8d 7c 6h 5s 4h 3c
+  | 6s 5h
+  | Kd Qc Jh Ts
+  | Kh Qs Jd Tc 9d 8c 7d 6c 5d 4s
+  | Ks Qh Jc Th 9c 8h 7s 6d 5c
+STOCK:
+| 9h 7h 8s
+MOVES:

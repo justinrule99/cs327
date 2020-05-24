@@ -1,0 +1,79 @@
+INFORMATION FOR DEVELOPERS
+
+
+Author: Justin Rule
+		jrule@iastate.edu
+
+Repository: https://git.linux.iastate.edu/jrule/jrule-coms327
+
+Part 1 Notes: 
+	Part 1 of this project was written entirely in C, using built-in file reading techniques
+
+	I found it helpful to create two structs:
+		card_t to store all information regarding a single card (ex: 8d)
+		state_t to store information about the current game being read
+
+
+	I used a variety of helper functions to parse the file: (listed in order of source file)
+		int contains()	 	to check if a character is included in an array
+		int card_equals()	to check if two cards are equivalent
+		int contains_card() to see iff an array of cards contains a card
+		int is_rank()		to determine if a character is a valid rank
+		int is_suit()		to determine if a character is a valid suit
+		int read_whitespace()	 to consume unwanted whitespace
+			*this function was inspired by classnotes in wimpy.c from Week 3*
+		int read_int() 		to validate a character is between 0-9
+		card_t read_card()	attempts to read a card in the format ranksuit, ex: 5s
+		void parse_rules() 	to parse the rules section of the infile
+		void parse_foundations() to parse foundations section
+		void parse_tableau() to parse tableau section
+		void parse_stock()  to parse stock section
+		void read_file()	to read all sections of the infile
+		int main()			handles command line args vs stdin
+
+
+Part 2 Notes:
+	Part 2 of this project was written entirely in C, expanding on the file-reading code from part 1
+
+	The project is now split into 3 main source files: 
+		check.c: Parses input from a game as a text file (Part 1)
+		advance.c: Parses input and advances the game based on moves in the text file (Part 2)
+		fileparser.c (and fileparser.h): Supporting functions and structs that contain game state information (used in both parts)
+
+	The following was added to fileparser.c: 
+		A linked list based stack implementation for cards
+			*this is based off the stack.c example in lecture notes week 6*
+		void parse_moves() 		to read moves from an input file, validate them, then put them into an array for later use
+
+	In moves.c, I used the following helper functions:
+		int is_next_rank() 		to determine if two cards differ by one rank (for putting on the tableau/foundations)
+		char* to_string()		to convert a card struct to a string like "5h"
+		int is_alt_suit()		to determine if two cards are different colors
+		void error()			to exit the program and print an appropriate error message
+		void add_to_foundation() 	to add a card to the proper foundation
+		void process_move()			reads a move, then executes proper action or error
+		void make_tableau_column()  for printing, generates a tableau column in human readable format
+		void make_output			generates output in human readable format
+
+Part 3 Notes:
+    Part 3 makes significant modifications to code from parts 1 and 2 to make them more C++ friendly.
+    I started by making a GameState class that holds everything about a position in a game of solitaire, replacing the state_t struct used previously.
+    The class uses the built-in stack<type> rather than my own implementation of a stack in c.
+
+    In winnable.cc, I first read in the correct input file and switches.
+    Then, I call searchWin(GameState currentState). This recursive function completes a Depth-first search of moves
+    by calculating all possible moves from a given position, then for each move, recursively calling searchWin() with an updated
+    list of possible moves. This repeats until the moves limit is reached for all branches or a winning sequence is found.
+
+
+Part 4 Notes:
+    Part 4 uses the updated C++ classes and functions created for part 3, such as:
+        class GameState
+            readFile()
+            processThisMove()
+
+    The main implementation happens in game.cpp.
+    Inside an infinite while loop, I poll for keyboard events that represent game moves. Once a move is detected, I process
+    the move with processThisMove(), which is very similar to how I processed moves for Part 3. Then, with a new game state,
+    I simply redraw the entire game board with function draw_base_interface(GameState* state). This function makes drawing everything
+    simple thanks to helper functions write_text() and draw_card().

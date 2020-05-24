@@ -1,0 +1,22 @@
+#
+# Game can be won with 1 move 
+#
+RULES:
+  turn 1
+  unlimited
+FOUNDATIONS:
+  Jc
+  Kd
+  Kh
+  Ks
+TABLEAU:
+  | 
+  | 
+  | 
+  | 
+  | 
+  | 
+  | Kc
+STOCK:
+Qc |
+MOVES:

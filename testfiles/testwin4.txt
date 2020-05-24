@@ -1,0 +1,16 @@
+RULES:
+  turn 1
+  unlimited
+FOUNDATIONS:
+  2c 3d 3h 3s
+TABLEAU:
+  4c 5h | Ts
+  |
+  | Kc Qd Js Td 9s 8d 7c 6h 5s 4h 3c
+  | 6s
+  | Kd Qc
+  | Kh Qs Jd Tc 9d 8c 7d 6c 5d 4s
+  | Ks Qh Jc Th 9c 8h 7s 6d
+STOCK:
+  5c 4d Jh 9h 7h | 8s
+MOVES:

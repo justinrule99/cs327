@@ -1,0 +1,19 @@
+Move 11 is illegal (4->3)
+Foundations
+Ac 3d 3h 3s
+Tableau
+Ks Kh .. ## Kc ## ## 
+Qh Qs .. ## Qd 7s ## 
+Jc Jd .. .. Js 6d Ts 
+Th Tc .. .. Td 5c .. 
+9c 9d .. .. 9s 4d .. 
+.. 8c .. .. 8d .. .. 
+.. 7d .. .. 7c .. .. 
+.. 6c .. .. 6h .. .. 
+.. 5d .. .. 5s .. .. 
+.. 4s .. .. 4h .. .. 
+.. .. .. .. 3c .. .. 
+.. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. 
+Waste top
+(empty)

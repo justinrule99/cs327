@@ -1,0 +1,51 @@
+#
+# Input file that could (depending on the hidden cards)
+# correspond to the screenshot of Google’s Solitaire.
+#
+# The input file is designed to be human readable
+# and editable with minimal pain, which makes it
+# easier for everyone to create test inputs.
+# However it makes parsing a little tricky.
+RULES: # This section must be first
+# The following must appear in this order
+turn 1
+unlimited # Easiest possible version of Klondike
+FOUNDATIONS: # Alpha order: c,d,h,s
+6c # nothing on clubs foundation
+2d # nor on the diamonds foundation
+_h # hearts foundation has 2h and Ah
+3s # spades foundation has As
+TABLEAU:
+#
+# Columns in reverse order. This is because, if you
+# tilt your head 90 degrees to the left,
+# you will get the tableau as you would see it while playing.
+#
+8d 5c 7h Jd | Qs Jh Kc  # Column 7
+Ad 3h 4d 5s | 7d 6s # Column 6
+7s Kd | 3s # Column 5
+6h Qc 4h | 7c # Column 4
+8s 2s | 4d 3d 2c # Column 3
+5h 5h 5h | 8h # Column 2 (empty)
+5h | Ks Qh Jc # Column 1 (nothing covered)
+STOCK:
+4s 3d |  7c Kh 8h # These don’t have to appear all on one line
+ Qd 9s 6c Kc Ah Ts
+# Js 2d # Lots of spaces, just because
+# 9h 6d 9c 5h 9d
+MOVES:
+r
+.
+6->2
+. r r r r r . . . . . . .
+w->1
+6->f
+4->f
+ 7->5
+ .
+ 3->5
+r 2->1
+ 4->5
+
+# For part 1, ignore everything after the MOVES: keyword.
+# For later parts, there may be things after this to process.  
